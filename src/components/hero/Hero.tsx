@@ -14,6 +14,7 @@ export default function Hero() {
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
+          className="order-2 lg:order-1"
         >
           <p className="text-orange-500 text-base md:text-lg font-medium mb-2">Hello, I'm</p>
 
@@ -98,13 +99,13 @@ export default function Hero() {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative flex justify-center items-center"
+          className="relative flex justify-center items-center order-1 lg:order-2"
         >
           {/* Orange Glow */}
-          <div className="absolute w-[360px] md:w-[420px] h-[360px] md:h-[420px] bg-orange-500 rounded-full blur-[140px] opacity-25 pointer-events-none"></div>
+          <div className="absolute w-[300px] sm:w-[360px] md:w-[420px] h-[300px] sm:h-[360px] md:h-[420px] bg-orange-500 rounded-full blur-[140px] opacity-25 pointer-events-none"></div>
 
           {/* Image */}
-          <div className="relative z-10 w-full max-w-[480px] lg:max-w-[530px] flex justify-center items-center">
+          <div className="relative z-10 w-full max-w-[340px] sm:max-w-[440px] lg:max-w-[530px] flex justify-center items-center">
             <img
               src="/profile.png?v=5"
               alt="Akash Rafeal J"
@@ -115,23 +116,23 @@ export default function Hero() {
           {/* Top Card */}
           <Link
             to="/projects"
-            className="absolute top-4 lg:top-8 right-0 z-20 bg-[#111111]/90 border border-orange-500/30 hover:border-orange-500 rounded-xl px-4 py-3 lg:px-5 lg:py-4 backdrop-blur-md shadow-xl transition-all duration-300 group cursor-pointer"
+            className="absolute top-2 sm:top-4 lg:top-8 right-0 z-20 bg-[#111111]/90 border border-orange-500/30 hover:border-orange-500 rounded-xl px-3 py-2 sm:px-4 sm:py-3 lg:px-5 lg:py-4 backdrop-blur-md shadow-xl transition-all duration-300 group cursor-pointer"
             title="View all projects"
           >
-            <h3 className="text-2xl lg:text-3xl font-bold text-orange-500 group-hover:scale-105 transition-transform">10+</h3>
-            <p className="text-gray-300 text-xs lg:text-sm">Projects</p>
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-orange-500 group-hover:scale-105 transition-transform">10+</h3>
+            <p className="text-gray-300 text-[11px] sm:text-xs lg:text-sm">Projects</p>
           </Link>
 
           {/* Middle Card */}
-          <div className="absolute top-1/2 -right-4 lg:-right-2 -translate-y-1/2 z-20 bg-[#111111]/90 border border-orange-500/30 rounded-xl px-4 py-3 lg:px-5 lg:py-4 backdrop-blur-md shadow-xl">
-            <h3 className="text-2xl lg:text-3xl font-bold text-orange-500">8.16</h3>
-            <p className="text-gray-300 text-xs lg:text-sm">CGPA</p>
+          <div className="absolute top-1/2 -right-2 sm:-right-4 lg:-right-2 -translate-y-1/2 z-20 bg-[#111111]/90 border border-orange-500/30 rounded-xl px-3 py-2 sm:px-4 sm:py-3 lg:px-5 lg:py-4 backdrop-blur-md shadow-xl">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-orange-500">8.16</h3>
+            <p className="text-gray-300 text-[11px] sm:text-xs lg:text-sm">CGPA</p>
           </div>
 
           {/* Bottom Card */}
-          <div className="absolute bottom-4 lg:bottom-8 right-2 lg:right-4 z-20 bg-[#111111]/90 border border-orange-500/30 rounded-xl px-4 py-3 lg:px-5 lg:py-4 backdrop-blur-md shadow-xl">
-            <h3 className="text-2xl lg:text-3xl font-bold text-orange-500">1+</h3>
-            <p className="text-gray-300 text-xs lg:text-sm">Internship</p>
+          <div className="absolute bottom-2 sm:bottom-4 lg:bottom-8 right-1 sm:right-2 lg:right-4 z-20 bg-[#111111]/90 border border-orange-500/30 rounded-xl px-3 py-2 sm:px-4 sm:py-3 lg:px-5 lg:py-4 backdrop-blur-md shadow-xl">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-orange-500">1+</h3>
+            <p className="text-gray-300 text-[11px] sm:text-xs lg:text-sm">Internship</p>
           </div>
         </motion.div>
       </div>
