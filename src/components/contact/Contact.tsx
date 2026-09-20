@@ -28,50 +28,38 @@ export default function Contact() {
     setStatus("loading");
     setStatusMessage("");
 
-    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    const accessKey =
+      import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "0c92274e-c41b-4cf0-8650-5bf6be657b86";
 
-    // When Web3Forms access key is provided in .env
-    if (accessKey && accessKey !== "YOUR_WEB3FORMS_ACCESS_KEY" && accessKey.trim() !== "") {
-      try {
-        const response = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            access_key: accessKey,
-            name: formData.name,
-            email: formData.email,
-            subject: formData.subject || `Portfolio Contact from ${formData.name}`,
-            message: formData.message,
-            from_name: `${formData.name} (Portfolio Inquiry)`,
-          }),
-        });
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || `Portfolio Contact from ${formData.name}`,
+          message: formData.message,
+          from_name: `${formData.name} (Portfolio Inquiry)`,
+        }),
+      });
 
-        const data = await response.json();
-        if (data.success) {
-          setStatus("success");
-          setStatusMessage("Thank you! Your message has been sent directly to my email. I will get back to you shortly.");
-          setFormData({ name: "", email: "", subject: "", message: "" });
-        } else {
-          setStatus("error");
-          setStatusMessage(data.message || "Failed to send message. Please try again.");
-        }
-      } catch (err) {
+      const data = await response.json();
+      if (data.success) {
+        setStatus("success");
+        setStatusMessage("Thank you! Your message has been sent directly to my email. I will get back to you shortly.");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
         setStatus("error");
-        setStatusMessage("Network error. Please try again or reach out directly via Email / WhatsApp.");
+        setStatusMessage(data.message || "Failed to send message. Please try again.");
       }
-    } else {
-      // Instant Fallback if access key is not yet configured: pre-fills email client
-      const subject = encodeURIComponent(formData.subject || `Portfolio Message from ${formData.name}`);
-      const body = encodeURIComponent(
-        `Hi Akash,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-      );
-      window.open(`mailto:akashrafeal1290@gmail.com?subject=${subject}&body=${body}`, "_blank");
-      setStatus("success");
-      setStatusMessage("Email client opened! You can also configure your free Web3Forms access key in .env to send silently in the background.");
-      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (err) {
+      setStatus("error");
+      setStatusMessage("Network error. Please try again or reach out directly via Email / WhatsApp.");
     }
   };
 
