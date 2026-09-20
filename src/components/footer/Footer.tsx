@@ -1,6 +1,6 @@
 import { ArrowUp} from "lucide-react";
 
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -85,6 +85,16 @@ export default function Footer() {
               title="Email Akash"
             >
               <FaEnvelope size={20} />
+            </a>
+
+            <a
+              href="https://wa.me/917010908812"
+              target="_blank"
+              rel="noreferrer"
+              className="w-12 h-12 rounded-xl bg-[#141414] flex items-center justify-center hover:bg-orange-500 transition"
+              title="Chat on WhatsApp"
+            >
+              <FaWhatsapp size={20} />
             </a>
 
             {/* Back to Top */}

@@ -1,31 +1,32 @@
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { FaGithub, FaLinkedin, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen bg-[#090909] text-white flex items-center pt-24"
+      className="min-h-screen bg-[#090909] text-white flex items-center pt-20 lg:pt-24 pb-8 lg:pb-12"
     >
-      <div className="max-w-7xl mx-auto w-full px-6 grid grid-cols-1 lg:grid-cols-2 items-center gap-16">
+      <div className="max-w-7xl mx-auto w-full px-6 grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-16">
         {/* Left Content */}
         <motion.div
-          initial={{ opacity: 0, x: 0 }}
+          initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <p className="text-orange-500 text-lg font-medium mb-3">Hello, I'm</p>
+          <p className="text-orange-500 text-base md:text-lg font-medium mb-2">Hello, I'm</p>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight">
             Akash <br />
             <span className="text-orange-500">Rafeal J</span>
           </h1>
 
-          <h2 className="mt-6 text-2xl md:text-3xl text-gray-300">
+          <h2 className="mt-3 md:mt-4 text-xl md:text-2xl lg:text-3xl text-gray-300 font-medium">
             Java Full Stack Developer
           </h2>
 
-          <p className="mt-6 text-gray-400 leading-8 max-w-xl">
+          <p className="mt-4 md:mt-5 text-gray-400 text-sm md:text-base leading-relaxed max-w-xl">
             Passionate Java Full Stack Developer specializing in Spring Boot,
             React, REST APIs, MySQL, and scalable web application development. I
             enjoy building modern applications with clean architecture and
@@ -33,25 +34,25 @@ export default function Hero() {
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-wrap gap-4 mt-10">
-            <a
-              href="#projects"
-              className="bg-orange-500 hover:bg-orange-600 transition px-8 py-3 rounded-lg font-semibold inline-block"
+          <div className="flex flex-wrap gap-4 mt-6 md:mt-8">
+            <Link
+              to="/projects"
+              className="bg-orange-500 hover:bg-orange-600 transition px-6 md:px-8 py-3 rounded-lg font-semibold inline-block shadow-lg shadow-orange-500/20"
             >
               View Projects
-            </a>
+            </Link>
 
             <a
               href="/resume.pdf"
-              download="Akash_Rafeal_Resume.pdf"
-              className="border border-orange-500 hover:bg-orange-500 transition px-8 py-3 rounded-lg font-semibold inline-block"
+              download="2026 Resume Chennai.pdf"
+              className="border border-orange-500 hover:bg-orange-500 transition px-6 md:px-8 py-3 rounded-lg font-semibold inline-block"
             >
               Download Resume
             </a>
           </div>
 
           {/* Social Icons */}
-          <div className="flex gap-6 mt-10 text-2xl">
+          <div className="flex gap-6 mt-6 md:mt-8 text-2xl">
             <a
               href="https://github.com/AkashRafeal"
               target="_blank"
@@ -79,44 +80,58 @@ export default function Hero() {
             >
               <FaEnvelope />
             </a>
+
+            <a
+              href="https://wa.me/917010908812"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-orange-500 transition"
+              title="Chat on WhatsApp"
+            >
+              <FaWhatsapp />
+            </a>
           </div>
         </motion.div>
 
         {/* Right Content */}
         <motion.div
-          initial={{ opacity: 0, x: 80 }}
+          initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           className="relative flex justify-center items-center"
         >
           {/* Orange Glow */}
-          <div className="absolute w-[420px] h-[420px] bg-orange-500 rounded-full blur-[140px] opacity-25"></div>
+          <div className="absolute w-[360px] md:w-[420px] h-[360px] md:h-[420px] bg-orange-500 rounded-full blur-[140px] opacity-25 pointer-events-none"></div>
 
           {/* Image */}
-          <div className="relative z-10 w-[520px] flex justify-center items-center">
+          <div className="relative z-10 w-full max-w-[480px] lg:max-w-[530px] flex justify-center items-center">
             <img
-              src="/profile.png?v=3"
+              src="/profile.png?v=5"
               alt="Akash Rafeal J"
-              className="w-full object-contain drop-shadow-[0_0_60px_rgba(249,115,22,0.2)]"
+              className="w-full object-contain drop-shadow-[0_0_50px_rgba(249,115,22,0.18)]"
             />
           </div>
 
           {/* Top Card */}
-          <div className="absolute top-10 right-0 z-20 bg-[#111111]/90 border border-orange-500/30 rounded-xl px-5 py-4 backdrop-blur-md">
-            <h3 className="text-3xl font-bold text-orange-500">10+</h3>
-            <p className="text-gray-300 text-sm">Projects</p>
-          </div>
+          <Link
+            to="/projects"
+            className="absolute top-4 lg:top-8 right-0 z-20 bg-[#111111]/90 border border-orange-500/30 hover:border-orange-500 rounded-xl px-4 py-3 lg:px-5 lg:py-4 backdrop-blur-md shadow-xl transition-all duration-300 group cursor-pointer"
+            title="View all projects"
+          >
+            <h3 className="text-2xl lg:text-3xl font-bold text-orange-500 group-hover:scale-105 transition-transform">10+</h3>
+            <p className="text-gray-300 text-xs lg:text-sm">Projects</p>
+          </Link>
 
           {/* Middle Card */}
-          <div className="absolute top-1/2 -right-6 -translate-y-1/2 z-20 bg-[#111111]/90 border border-orange-500/30 rounded-xl px-5 py-4 backdrop-blur-md">
-            <h3 className="text-3xl font-bold text-orange-500">8.16</h3>
-            <p className="text-gray-300 text-sm">CGPA</p>
+          <div className="absolute top-1/2 -right-4 lg:-right-2 -translate-y-1/2 z-20 bg-[#111111]/90 border border-orange-500/30 rounded-xl px-4 py-3 lg:px-5 lg:py-4 backdrop-blur-md shadow-xl">
+            <h3 className="text-2xl lg:text-3xl font-bold text-orange-500">8.16</h3>
+            <p className="text-gray-300 text-xs lg:text-sm">CGPA</p>
           </div>
 
           {/* Bottom Card */}
-          <div className="absolute bottom-10 right-8 z-20 bg-[#111111]/90 border border-orange-500/30 rounded-xl px-5 py-4 backdrop-blur-md">
-            <h3 className="text-3xl font-bold text-orange-500">1+</h3>
-            <p className="text-gray-300 text-sm">Internship</p>
+          <div className="absolute bottom-4 lg:bottom-8 right-2 lg:right-4 z-20 bg-[#111111]/90 border border-orange-500/30 rounded-xl px-4 py-3 lg:px-5 lg:py-4 backdrop-blur-md shadow-xl">
+            <h3 className="text-2xl lg:text-3xl font-bold text-orange-500">1+</h3>
+            <p className="text-gray-300 text-xs lg:text-sm">Internship</p>
           </div>
         </motion.div>
       </div>

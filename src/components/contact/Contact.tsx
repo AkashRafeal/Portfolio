@@ -1,6 +1,6 @@
 import { Mail, Phone, MapPin, Send, Download } from "lucide-react";
 
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
 export default function Contact() {
   return (
@@ -59,12 +59,13 @@ export default function Contact() {
 
             {/* Social Links */}
 
-            <div className="flex gap-5">
+            <div className="flex flex-wrap gap-4">
               <a
                 href="https://github.com/AkashRafeal"
                 target="_blank"
                 rel="noreferrer"
-                className="bg-[#141414] p-4 rounded-xl border border-orange-500/20 hover:border-orange-500"
+                className="bg-[#141414] p-4 rounded-xl border border-orange-500/20 hover:border-orange-500 hover:text-orange-500 transition"
+                title="GitHub Profile"
               >
                 <FaGithub size={22} />
               </a>
@@ -73,9 +74,28 @@ export default function Contact() {
                 href="https://www.linkedin.com/in/akash-rafeal-j"
                 target="_blank"
                 rel="noreferrer"
-                className="bg-[#141414] p-4 rounded-xl border border-orange-500/20 hover:border-orange-500"
+                className="bg-[#141414] p-4 rounded-xl border border-orange-500/20 hover:border-orange-500 hover:text-orange-500 transition"
+                title="LinkedIn Profile"
               >
                 <FaLinkedin size={22} />
+              </a>
+
+              <a
+                href="mailto:akashrafeal1290@gmail.com"
+                className="bg-[#141414] p-4 rounded-xl border border-orange-500/20 hover:border-orange-500 hover:text-orange-500 transition"
+                title="Send Email"
+              >
+                <FaEnvelope size={22} />
+              </a>
+
+              <a
+                href="https://wa.me/917010908812"
+                target="_blank"
+                rel="noreferrer"
+                className="bg-[#141414] p-4 rounded-xl border border-orange-500/20 hover:border-orange-500 hover:text-orange-500 transition"
+                title="Chat on WhatsApp"
+              >
+                <FaWhatsapp size={22} />
               </a>
             </div>
 
@@ -83,7 +103,7 @@ export default function Contact() {
 
             <a
               href="/resume.pdf"
-              download
+              download="2026 Resume Chennai.pdf"
               className="inline-flex items-center gap-3 bg-orange-500 px-6 py-3 rounded-xl hover:bg-orange-600 transition"
             >
               <Download size={20} />
