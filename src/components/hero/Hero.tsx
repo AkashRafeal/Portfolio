@@ -8,13 +8,55 @@ export default function Hero() {
       id="home"
       className="min-h-screen bg-[#090909] text-white flex items-center pt-20 lg:pt-24 pb-8 lg:pb-12"
     >
-      <div className="max-w-7xl mx-auto w-full px-6 grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-16">
-        {/* Left Content */}
+      <div className="max-w-7xl mx-auto w-full px-6 flex flex-col lg:grid lg:grid-cols-2 items-center gap-10 lg:gap-16">
+        {/* Profile Image (Physically FIRST in JSX -> Always first on mobile, lg:order-2 on desktop) */}
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="order-2 lg:order-1"
+          className="relative flex justify-center items-center w-full lg:order-2"
+        >
+          {/* Orange Glow */}
+          <div className="absolute w-[280px] sm:w-[360px] md:w-[420px] h-[280px] sm:h-[360px] md:h-[420px] bg-orange-500 rounded-full blur-[130px] opacity-25 pointer-events-none"></div>
+
+          {/* Image */}
+          <div className="relative z-10 w-full max-w-[320px] sm:max-w-[420px] lg:max-w-[530px] flex justify-center items-center">
+            <img
+              src="/profile.png?v=5"
+              alt="Akash Rafeal J"
+              className="w-full object-contain drop-shadow-[0_0_50px_rgba(249,115,22,0.18)]"
+            />
+          </div>
+
+          {/* Top Card - 10+ Projects */}
+          <Link
+            to="/projects"
+            className="absolute top-2 sm:top-4 lg:top-8 right-0 z-20 bg-[#111111]/90 border border-orange-500/30 hover:border-orange-500 rounded-xl px-2.5 py-1.5 sm:px-4 sm:py-3 lg:px-5 lg:py-4 backdrop-blur-md shadow-xl transition-all duration-300 group cursor-pointer"
+            title="View all projects"
+          >
+            <h3 className="text-lg sm:text-2xl lg:text-3xl font-bold text-orange-500 group-hover:scale-105 transition-transform">10+</h3>
+            <p className="text-gray-300 text-[10px] sm:text-xs lg:text-sm">Projects</p>
+          </Link>
+
+          {/* Middle Card - 8.16 CGPA */}
+          <div className="absolute top-1/2 -right-1 sm:-right-2 lg:-right-2 -translate-y-1/2 z-20 bg-[#111111]/90 border border-orange-500/30 rounded-xl px-2.5 py-1.5 sm:px-4 sm:py-3 lg:px-5 lg:py-4 backdrop-blur-md shadow-xl">
+            <h3 className="text-lg sm:text-2xl lg:text-3xl font-bold text-orange-500">8.16</h3>
+            <p className="text-gray-300 text-[10px] sm:text-xs lg:text-sm">CGPA</p>
+          </div>
+
+          {/* Bottom Card - 1+ Internship */}
+          <div className="absolute bottom-2 sm:bottom-4 lg:bottom-8 right-0 sm:right-2 lg:right-4 z-20 bg-[#111111]/90 border border-orange-500/30 rounded-xl px-2.5 py-1.5 sm:px-4 sm:py-3 lg:px-5 lg:py-4 backdrop-blur-md shadow-xl">
+            <h3 className="text-lg sm:text-2xl lg:text-3xl font-bold text-orange-500">1+</h3>
+            <p className="text-gray-300 text-[10px] sm:text-xs lg:text-sm">Internship</p>
+          </div>
+        </motion.div>
+
+        {/* Text Content (Physically SECOND in JSX -> Below image on mobile, lg:order-1 on desktop) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="w-full lg:order-1"
         >
           <p className="text-orange-500 text-base md:text-lg font-medium mb-2">Hello, I'm</p>
 
@@ -38,7 +80,7 @@ export default function Hero() {
           <div className="flex flex-wrap gap-4 mt-6 md:mt-8">
             <Link
               to="/projects"
-              className="bg-orange-500 hover:bg-orange-600 transition px-6 md:px-8 py-3 rounded-lg font-semibold inline-block shadow-lg shadow-orange-500/20"
+              className="bg-orange-500 hover:bg-orange-600 transition px-6 md:px-8 py-3 rounded-lg font-semibold inline-block shadow-lg shadow-orange-500/20 text-sm md:text-base"
             >
               View Projects
             </Link>
@@ -46,7 +88,7 @@ export default function Hero() {
             <a
               href="/resume.pdf"
               download="2026 Resume Chennai.pdf"
-              className="border border-orange-500 hover:bg-orange-500 transition px-6 md:px-8 py-3 rounded-lg font-semibold inline-block"
+              className="border border-orange-500 hover:bg-orange-500 transition px-6 md:px-8 py-3 rounded-lg font-semibold inline-block text-sm md:text-base"
             >
               Download Resume
             </a>
@@ -91,48 +133,6 @@ export default function Hero() {
             >
               <FaWhatsapp />
             </a>
-          </div>
-        </motion.div>
-
-        {/* Right Content */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative flex justify-center items-center order-1 lg:order-2"
-        >
-          {/* Orange Glow */}
-          <div className="absolute w-[300px] sm:w-[360px] md:w-[420px] h-[300px] sm:h-[360px] md:h-[420px] bg-orange-500 rounded-full blur-[140px] opacity-25 pointer-events-none"></div>
-
-          {/* Image */}
-          <div className="relative z-10 w-full max-w-[340px] sm:max-w-[440px] lg:max-w-[530px] flex justify-center items-center">
-            <img
-              src="/profile.png?v=5"
-              alt="Akash Rafeal J"
-              className="w-full object-contain drop-shadow-[0_0_50px_rgba(249,115,22,0.18)]"
-            />
-          </div>
-
-          {/* Top Card */}
-          <Link
-            to="/projects"
-            className="absolute top-2 sm:top-4 lg:top-8 right-0 z-20 bg-[#111111]/90 border border-orange-500/30 hover:border-orange-500 rounded-xl px-3 py-2 sm:px-4 sm:py-3 lg:px-5 lg:py-4 backdrop-blur-md shadow-xl transition-all duration-300 group cursor-pointer"
-            title="View all projects"
-          >
-            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-orange-500 group-hover:scale-105 transition-transform">10+</h3>
-            <p className="text-gray-300 text-[11px] sm:text-xs lg:text-sm">Projects</p>
-          </Link>
-
-          {/* Middle Card */}
-          <div className="absolute top-1/2 -right-2 sm:-right-4 lg:-right-2 -translate-y-1/2 z-20 bg-[#111111]/90 border border-orange-500/30 rounded-xl px-3 py-2 sm:px-4 sm:py-3 lg:px-5 lg:py-4 backdrop-blur-md shadow-xl">
-            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-orange-500">8.16</h3>
-            <p className="text-gray-300 text-[11px] sm:text-xs lg:text-sm">CGPA</p>
-          </div>
-
-          {/* Bottom Card */}
-          <div className="absolute bottom-2 sm:bottom-4 lg:bottom-8 right-1 sm:right-2 lg:right-4 z-20 bg-[#111111]/90 border border-orange-500/30 rounded-xl px-3 py-2 sm:px-4 sm:py-3 lg:px-5 lg:py-4 backdrop-blur-md shadow-xl">
-            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-orange-500">1+</h3>
-            <p className="text-gray-300 text-[11px] sm:text-xs lg:text-sm">Internship</p>
           </div>
         </motion.div>
       </div>

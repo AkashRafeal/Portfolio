@@ -74,7 +74,7 @@ export const projectsData: Project[] = [
     ],
     tech: ["TypeScript", "React", "Next.js", "Spring Boot", "MySQL", "Tailwind CSS"],
     github: "https://github.com/AkashRafeal/Saree-Shop",
-    demo: "https://saree-shop-psi.vercel.app",
+    demo: "https://sareeshop-zeta.vercel.app",
     liveStatus: "Live Demo Available",
     featured: true,
     image: "/projects/saree-shop.jpg",
